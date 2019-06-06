@@ -50,9 +50,19 @@ class Passenger {
 class Trip {
   constructor(driver, passenger) {
     this.id = ++tripId;
-    this.driverId = driver.id;
-    this.passengerId = passenger.id;
+    if (driver) {
+      this.driverId = driver.id;
+    }
+    if (passenger) {
+      this.passengerId = passenger.id;
+    }
     store.trips.push(this);
+  }
+  setDriver(driver) {
+    this.driverId = driver.id;
+  }
+  setPassenger(passenger) {
+    this.passengerId = passenger.id;
   }
   driver() {
     return store.drivers.find(
