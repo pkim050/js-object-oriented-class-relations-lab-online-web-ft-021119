@@ -17,7 +17,7 @@ class Driver {
     );
   }
   passengers() {
-    return store.passengers.map(
+    return store.passengers.filter(
       function(passenger) {
         return passenger.driverId === this.id;
       }.bind(this)
@@ -39,7 +39,7 @@ class Passenger {
     );
   }
   drivers() {
-    return store.drivers.map(
+    return store.drivers.filter(
       function(driver) {
         return driver.passengerId === this.id;
       }.bind(this)
